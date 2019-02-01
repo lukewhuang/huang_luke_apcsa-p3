@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <section name="Workbench">
 	<list key="org.eclipse.ui.internal.wizards.datatransfer.SmartImportRootWizardPage.knownSources">
+		<item value="C:\Users\lucky\Documents\GitHub\huang_luke_apcsa-p3\Unit00"/>
 		<item value="C:\Users\lucky\Documents\GitHub\huang_luke_apcsa-p3"/>
 	</list>
 	<section name="ResourceNavigator">
@@ -10,6 +11,8 @@
 	<section name="WORKBENCH_SETTINGS">
 		<list key="ENABLED_TRANSFERS">
 		</list>
+	</section>
+	<section name="NewWizardAction">
 	</section>
 	<section name="ChooseWorkspaceDialogSettings">
 		<item value="657" key="DIALOG_X_ORIGIN"/>
