@@ -31,6 +31,7 @@ public class MPHRunner
 		
 		//add more test cases
 		
+		keyboard.close();
 		
 	}
 }
