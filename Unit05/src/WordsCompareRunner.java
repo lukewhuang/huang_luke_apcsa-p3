@@ -1,7 +1,7 @@
 //(c) A+ Computer Science
 //www.apluscompsci.com
 
-//Name -
+//Name - 
 //Date -
 //Class -
 //Lab  -
@@ -12,7 +12,15 @@ public class WordsCompareRunner
 {
    public static void main( String args[] )
    {
-		//add test cases
+		WordsCompare a = new WordsCompare();
+		
+		a.setWords("abe", "ape");
+		a.compare();
+		System.out.println(a.toString());
+		a.setWords("ape", "abe");
+		a.compare();
+		System.out.println(a.toString());
+		
 
 	}
 }

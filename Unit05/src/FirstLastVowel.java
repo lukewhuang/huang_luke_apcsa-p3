@@ -11,7 +11,7 @@ public class FirstLastVowel
 	
 	   char first = a.charAt(0);
 	   
-	   char last = a.charAt(a.length());
+	   char last = a.charAt(a.length()-1);
 	   
 	   first = Character.toUpperCase(first);
 	   last = Character.toUpperCase(last);
