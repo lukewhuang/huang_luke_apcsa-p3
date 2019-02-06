@@ -8,6 +8,7 @@ public class FirstLastVowel
 {
    public static String go( String a )
 	{
+	   //note: could use .indexOf for fewer lines
 	
 	   char first = a.charAt(0);
 	   
