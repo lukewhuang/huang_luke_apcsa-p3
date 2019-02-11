@@ -53,8 +53,20 @@ public class Magpie2
 		}
 		else if(statement.indexOf("Mrs.") >= 0 || statement.indexOf("Ms.") >=0)
 			response = "She sounds like a good teacher.";
+		else if (statement.indexOf("computer science") >= 0) {
+			response = "Tell me more about computer science.";
+		}
+		else if (statement.indexOf("engineering") >= 0) {
+			response = "I like engineering.";
+		}
+		else if (statement.indexOf("humanities") >= 0) {
+			response = "Tell me more about humanities courses.";
+		}
+		
+		
 		else if (statement.length() == 0)
 			response = "Say something, please.";
+		
 		
 		//end of alterations
 		else
@@ -70,7 +82,7 @@ public class Magpie2
 	 */
 	private String getRandomResponse()
 	{
-		final int NUMBER_OF_RESPONSES = 4;
+		final int NUMBER_OF_RESPONSES = 6;
 		double r = Math.random();
 		int whichResponse = (int)(r * NUMBER_OF_RESPONSES);
 		String response = "";
@@ -91,7 +103,14 @@ public class Magpie2
 		{
 			response = "You don't say.";
 		}
-
+		// alterations begin here
+		else if (whichResponse == 4) {
+			response = "Alright then.";
+		}
+		else if (whichResponse == 5) {
+			response = "Sounds cool.";
+		}
+		// end alterations here
 		return response;
 	}
 }

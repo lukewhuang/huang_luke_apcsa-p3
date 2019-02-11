@@ -51,6 +51,30 @@ public class Magpie4
 
 		// alterations begin here
 		
+			else if (findKeyword(statement, "dog") >= 0 || findKeyword(statement, "cat") >= 0) {
+					response = "Tell me more about your pets.";
+				}
+					
+				else if (findKeyword(statement,"Mr.") >= 0) {
+					response = "He sounds like a good teacher.";
+				}
+				
+				else if (findKeyword(statement, "Mrs.") >= 0 || findKeyword(statement, "Ms.") >=0) {
+					response = "She sounds like a good teacher.";
+				}
+				else if (findKeyword(statement, " ") >= 0) {
+					response = "Say something, please.";
+				}
+				else if (findKeyword(statement, "computer science") >= 0) {
+					response = "Tell me more about computer science.";
+				}
+				else if (findKeyword(statement, "engineering") >= 0) {
+					response = "I like engineering.";
+				}
+				else if (findKeyword(statement, "humanities") >= 0) {
+					response = "Tell me more about humanities courses.";
+				}
+		
 		else if (findKeyword(statement, "I want") >= 0)
 		{
 			response = transformIWantToStatement(statement);
@@ -61,12 +85,12 @@ public class Magpie4
 		{
 			// Look for a two word (you <something> me)
 			// pattern
-			int psn = findKeyword(statement, "you", 0);
+			int psn = findKeyword(statement, "I", 0);
 
 			if (psn >= 0
-					&& findKeyword(statement, "me", psn) >= 0)
+					&& findKeyword(statement, "You", psn) >= 0)
 			{
-				response = transformYouMeStatement(statement);
+				response = transformIYouStatement(statement);
 			}
 			else
 			{
@@ -98,7 +122,24 @@ public class Magpie4
 	}
 
 	
-	
+	private String transformIYouStatement(String statement)
+	{
+	//  Remove the final period, if there is one
+			statement = statement.trim();
+			String lastChar = statement.substring(statement
+					.length() - 1);
+			if (lastChar.equals("."))
+			{
+				statement = statement.substring(0, statement
+						.length() - 1);
+			}
+			
+			int psnOfI = findKeyword (statement, "I", 0);
+			int psnOfYou = findKeyword (statement, "You", psnOfI + 3);
+			
+			String restOfStatement = statement.substring(psnOfI + 2, psnOfYou).trim();
+			return "Why do you " + restOfStatement + " me?";
+	}
 	/**
 	 * Take a statement with "you <something> me" and transform it into 
 	 * "What makes you think that I <something> you?"

@@ -62,6 +62,16 @@ public class Magpie3
 		else if (findKeyword(statement, " ") >= 0) {
 			response = "Say something, please.";
 		}
+		else if (findKeyword(statement, "computer science") >= 0) {
+			response = "Tell me more about computer science.";
+		}
+		else if (findKeyword(statement, "engineering") >= 0) {
+			response = "I like engineering.";
+		}
+		else if (findKeyword(statement, "humanities") >= 0) {
+			response = "Tell me more about humanities courses.";
+		}
+		// end alterations here
 		else
 		{
 			response = getRandomResponse();
@@ -161,7 +171,7 @@ public class Magpie3
 	 */
 	private String getRandomResponse()
 	{
-		final int NUMBER_OF_RESPONSES = 4;
+		final int NUMBER_OF_RESPONSES = 6;
 		double r = Math.random();
 		int whichResponse = (int) (r * NUMBER_OF_RESPONSES);
 		String response = "";
@@ -182,7 +192,14 @@ public class Magpie3
 		{
 			response = "You don't say.";
 		}
-
+		// alterations begin here
+		else if (whichResponse == 4) {
+			response = "Alright then.";
+		}
+		else if (whichResponse == 5) {
+			response = "Sounds cool.";
+		}
+		// end alterations here
 		return response;
 	}
 
