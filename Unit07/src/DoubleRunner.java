@@ -10,9 +10,11 @@ public class DoubleRunner
 	{
 		BiggestDouble run = new BiggestDouble(4.5,6.7,7.8,9.0);
 		System.out.println(run);
-		System.out.println("biggest = " + run.getBiggest() + "\n");
+		
 
 		//add more test cases
-				
+		BiggestDouble run2 = new BiggestDouble(4.9,0.7,1.8,2.0);
+		System.out.println(run2);
+		
 	}
 }

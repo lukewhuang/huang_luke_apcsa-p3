@@ -7,11 +7,11 @@ import static java.lang.System.*;
 public class BiggestDouble
 {
 	private double one,two,three,four;
-	double largest = 0.0;
+	
 	
 	public BiggestDouble()
 	{
-		setDoubles(0,0,0,0);
+		this(0,0,0,0);
 	}
 
 	public BiggestDouble(double a, double b, double c, double d)
@@ -29,45 +29,32 @@ public class BiggestDouble
 
 	public double getBiggest()
 	{
+		double firstLargest = 0.0;
+		double secondLargest = 0.0;
 		
 		if (two > one) {
-			two = largest;
+			firstLargest = two;
 		}
-		else if (one < two) {
-			one = largest;
-		}
-		
-		if (one == largest) {
-			if (one < three) {
-				three = largest;
-			}
-			else if (one < four) {
-				four = largest;
-			}
+		else if (one > two) {
+			firstLargest = one;
 		}
 		
-		if (two == largest) {
-			if (two < four) {
-				four = largest;
-			}
-			else if (two < three) {
-				three = largest;
-			}
-			
+		if (three > four) {
+			secondLargest = three;
+		}
+		else if (four > three) {
+			secondLargest = four;
 		}
 		
-		if (three == largest) {
-			if (four > three) {
-				four = largest;
-			}
+		if (firstLargest > secondLargest) {
+			return firstLargest;
 		}
-		
-// not working
-		return largest;
+		else 
+			return secondLargest;
 	}
 
 	public String toString()
 	{
-	   return " ";
+	   return "biggest = " + getBiggest();
 	}
 }
