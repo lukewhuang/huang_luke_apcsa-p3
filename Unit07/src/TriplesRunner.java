@@ -8,5 +8,7 @@ public class TriplesRunner
 {
    public static void main(String args[])
    {
+	   Triples one = new Triples(450);
+	   System.out.println(one.toString());
 	}
 }

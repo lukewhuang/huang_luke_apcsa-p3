@@ -33,9 +33,7 @@ public class TriangleFive
 
 	public String toString()
 	{
-
 		String output="";
-		
 		for (int i = amount; i > 0 ; i--)
 		{
 			int x = 0;
@@ -43,7 +41,7 @@ public class TriangleFive
 			
 			while (x<i) {
 				for (int z = amount - x ; z>0; z--) {
-					output = newLetter + output;
+					output += newLetter; 
 				}
 				
 				if(newLetter == 'Z' || newLetter == 'z') {
@@ -51,14 +49,12 @@ public class TriangleFive
 				}
 				else
 					newLetter++;
-				
+				output = output + "  ";
 				x++;
 			}
 			
-			output = output + "\n";
+			output += "\n";
 		}
-		
-		
 		return output;
 	}
 }
