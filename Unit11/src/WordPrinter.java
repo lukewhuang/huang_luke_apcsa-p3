@@ -8,7 +8,13 @@ public class WordPrinter
 {
 	//instance variables and constructors could be present, but are not necessary
 		
-	public static void printWord(String word, int times)
+	public static String printWord(String word, int times)
 	{
+		String str = "";
+		
+		for (int i=0; i<times; i++)
+			str += word + "\n";
+		
+		return str;
 	}
 }
