@@ -8,7 +8,6 @@ INDEX VERSION 1.131+C:\Users\lucky\Documents\GitHub\huang_luke_apcsa-p3\.metadat
 2641007767.index
 972666350.index
 1897928139.index
-2530069035.index
 2551595545.index
 3498974549.index
 1981293365.index
@@ -23,8 +22,8 @@ INDEX VERSION 1.131+C:\Users\lucky\Documents\GitHub\huang_luke_apcsa-p3\.metadat
 4010898063.index
 3698278747.index
 2953298812.index
-58444662.index
 3517127072.index
+58444662.index
 998035881.index
 3788176061.index
 729327550.index
