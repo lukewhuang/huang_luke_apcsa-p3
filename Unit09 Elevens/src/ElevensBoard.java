@@ -87,7 +87,7 @@ public class ElevensBoard extends Board {
 	 *                      of indexes into this board that are searched
 	 *                      to find an 11-pair.
 	 * @return true if the board entries in selectedCards
-	 *              contain an 11-pair; false otherwise.
+	 *              contain an 11-pair;  false otherwise.
 	 */
 	private boolean containsPairSum11(List<Integer> selectedCards) {
 		/* *** TO BE IMPLEMENTED IN ACTIVITY 9 *** */

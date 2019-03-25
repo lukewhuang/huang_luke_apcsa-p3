@@ -88,10 +88,13 @@ public class Deck {
 		
 		for (int i=cards.size()-1; i >= 1; i--)
 		{
-			int r = (int)(Math.random() * (i+1));
-			Card save = cards.get(i);
-			cards.set(i,  cards.get(r));
-			cards.set(r,  save);
+			int howMany = i+1;
+			int start = 0;
+			int randPos = (int) (Math.random() * howMany) + start;
+			
+			Card temp = cards.get(i);
+			cards.set(i,  cards.get(randPos));
+			cards.set(randPos,  temp);
 		}
 	}
 
