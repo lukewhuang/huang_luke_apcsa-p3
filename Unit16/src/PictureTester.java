@@ -142,8 +142,9 @@ public class PictureTester
   
   public static void testCopy()
   {
-	  Picture canvas = new Picture("C:\\Users\\lucky\\Documents\\GitHub\\huang_luke_apcsa-p3\\Unit16\\src\\images\\640x480.jpg");
-	  canvas.copy(canvas, 1, 2);
+	  Picture canvas = new Picture("C:\\Users\\lucky\\Documents\\GitHub\\huang_luke_apcsa-p3\\Unit16\\src\\images\\femaleLionAndHall.jpg");
+	  canvas.copy(new Picture ("C:\\Users\\lucky\\Documents\\GitHub\\huang_luke_apcsa-p3\\Unit16\\src\\images\\koala.jpg"), 89, 45);
+	  canvas.copy((new Picture ("C:\\Users\\lucky\\Documents\\GitHub\\huang_luke_apcsa-p3\\Unit16\\src\\images\\water.jpg")), 234, 394);
 	  canvas.explore();
   }
   
@@ -175,7 +176,7 @@ public class PictureTester
     //testMirrorGull();
     //testMirrorDiagonal();
     //testCollage();
-    testCopy(); //NOT WORKING
+    testCopy();
     //testEdgeDetection();
     //testEdgeDetection2();
 	  
