@@ -372,6 +372,50 @@ public class Picture extends SimplePicture
 	      }
 	    }
   }
+  public void copy(Picture fromPic, int startRow, int startCol, int startRBound, int startCBound, int endRBound, int endCBound)
+  {
+	Pixel fromPixel = null;
+	Pixel toPixel = null;
+	Pixel[][] toPixels = this.getPixels2D();
+	Pixel[][] fromPixels = fromPic.getPixels2D();
+	for (int fromRow = startRBound, toRow = startRow; 
+	  fromRow < endRBound &&
+	  toRow < toPixels.length; 
+	  fromRow++, toRow++)
+	{
+	for (int fromCol = startCBound, toCol = startCol; 
+	    fromCol < endCBound &&
+	    toCol < toPixels[0].length;  
+	    fromCol++, toCol++)
+	{
+	 fromPixel = fromPixels[fromRow][fromCol];
+	 toPixel = toPixels[toRow][toCol];
+	 toPixel.setColor(fromPixel.getColor());
+	}
+	}   
+  }
+  
+  
+  public void myCollage()
+  {
+	  Picture flower = new Picture("C:\\Users\\lucky\\Documents\\GitHub\\huang_luke_apcsa-p3\\Unit16\\src\\images\\flower1.jpg");
+	  Picture beach = new Picture("C:\\Users\\lucky\\Documents\\GitHub\\huang_luke_apcsa-p3\\Unit16\\src\\images\\beach.jpg");
+	  Picture water = new Picture("C:\\Users\\lucky\\Documents\\GitHub\\huang_luke_apcsa-p3\\Unit16\\src\\images\\water.jpg");
+	    
+	    this.copy(beach,100,100,0, 50, 100, 100);
+	    this.copy(flower,0,0, 0, 50, 100, 100);
+	    this.copy(flower,50,0, 0, 50, 100, 100);
+	    this.copy(flower,75,0, 0, 50, 100, 100);
+	    this.copy(water,200,200, 0, 50, 100, 300);
+	    Picture flowerNoBlue = new Picture(beach);
+	    flowerNoBlue.zeroBlue();
+	    this.copy(flowerNoBlue,300,300, 0, 100, 100, 75);
+	    this.copy(flower,400,400, 0, 50, 100, 75);
+	    this.copy(beach,500,500, 0, 50, 100, 75);
+	    this.copy(water, 200,200, 0, 50, 100, 75);
+	    this.mirrorVertical();
+	    this.write("C:\\Users\\lucky\\Documents\\GitHub\\huang_luke_apcsa-p3\\Unit16\\src\\images\\collage.jpg");
+  }
   
   public void mirrorDiagonal()
   {

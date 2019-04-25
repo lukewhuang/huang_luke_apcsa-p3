@@ -39,6 +39,7 @@ public class PictureTester
   public static void testCollage()
   {
     Picture canvas = new Picture("C:\\Users\\lucky\\Documents\\GitHub\\huang_luke_apcsa-p3\\Unit16\\src\\images\\640x480.jpg");
+    canvas.explore();
     canvas.createCollage();
     canvas.explore();
   }
@@ -47,6 +48,7 @@ public class PictureTester
   public static void testEdgeDetection()
   {
     Picture swan = new Picture("C:\\Users\\lucky\\Documents\\GitHub\\huang_luke_apcsa-p3\\Unit16\\src\\images\\swan.jpg");
+    swan.explore();
     swan.edgeDetection(10);
     swan.explore();
   }
@@ -56,6 +58,7 @@ public class PictureTester
   public static void testKeepOnlyBlue()
   {
 	  Picture beach = new Picture("C:\\Users\\lucky\\Documents\\GitHub\\huang_luke_apcsa-p3\\Unit16\\src\\images\\beach.jpg");
+	  beach.explore();
 	  beach.zeroGreen();
 	  beach.zeroRed();
 	  beach.explore();
@@ -64,6 +67,7 @@ public class PictureTester
   public static void testKeepOnlyRed()
   {
 	  Picture beach = new Picture("C:\\Users\\lucky\\Documents\\GitHub\\huang_luke_apcsa-p3\\Unit16\\src\\images\\beach.jpg");
+	  beach.explore();
 	  beach.zeroBlue();
 	  beach.zeroGreen();
 	  beach.explore();
@@ -72,6 +76,7 @@ public class PictureTester
   public static void testKeepOnlyGreen()
   { 
 	  Picture beach = new Picture("C:\\Users\\lucky\\Documents\\GitHub\\huang_luke_apcsa-p3\\Unit16\\src\\images\\beach.jpg");
+	  beach.explore();
 	  beach.zeroBlue();
 	  beach.zeroRed();
 	  beach.explore();
@@ -80,6 +85,7 @@ public class PictureTester
   public static void testNegate()
   {
 	  Picture beach = new Picture("C:\\Users\\lucky\\Documents\\GitHub\\huang_luke_apcsa-p3\\Unit16\\src\\images\\beach.jpg");
+	  beach.explore();
 	  beach.negate();
 	  beach.explore();
   }
@@ -87,6 +93,7 @@ public class PictureTester
   public static void testFixUnderwater()
   {
 	  Picture water = new Picture("C:\\Users\\lucky\\Documents\\GitHub\\huang_luke_apcsa-p3\\Unit16\\src\\images\\water.jpg");
+	  water.explore();
 	  water.fixUnderwater();
 	  water.explore();
   }
@@ -94,6 +101,7 @@ public class PictureTester
   public static void testGrayscale()
   {
 	  Picture beach = new Picture("C:\\Users\\lucky\\Documents\\GitHub\\huang_luke_apcsa-p3\\Unit16\\src\\images\\beach.jpg");
+	  beach.explore();
 	  beach.grayscale();
 	  beach.explore();
   }
@@ -101,6 +109,7 @@ public class PictureTester
   public static void testMirrorVerticalRightToLeft()
   {
 	  Picture beach = new Picture("C:\\Users\\lucky\\Documents\\GitHub\\huang_luke_apcsa-p3\\Unit16\\src\\images\\beach.jpg");
+	  beach.explore();
 	  beach.mirrorVerticalRightToLeft();
 	  beach.explore();
   }
@@ -108,6 +117,7 @@ public class PictureTester
   public static void testMirrorHorizontal()
   {
 	  Picture beach = new Picture("C:\\Users\\lucky\\Documents\\GitHub\\huang_luke_apcsa-p3\\Unit16\\src\\images\\beach.jpg");
+	  beach.explore();
 	  beach.mirrorHorizontal();
 	  beach.explore();  
   }
@@ -115,6 +125,7 @@ public class PictureTester
   public static void testMirrorHorizontalBotToTop()
   {
 	  Picture beach = new Picture("C:\\Users\\lucky\\Documents\\GitHub\\huang_luke_apcsa-p3\\Unit16\\src\\images\\beach.jpg");
+	  beach.explore();
 	  beach.mirrorHorizontalBotToTop();
 	  beach.explore();
   }
@@ -122,6 +133,7 @@ public class PictureTester
   public static void testMirrorArms()
   {
 	  Picture snowman = new Picture("C:\\Users\\lucky\\Documents\\GitHub\\huang_luke_apcsa-p3\\Unit16\\src\\images\\snowman.jpg");
+	  snowman.explore();
 	  snowman.mirrorArms();
 	  snowman.explore();
   }
@@ -129,6 +141,7 @@ public class PictureTester
   public static void testMirrorGull()
   {
 	  Picture seagull = new Picture("C:\\Users\\lucky\\Documents\\GitHub\\huang_luke_apcsa-p3\\Unit16\\src\\images\\seagull.jpg");
+	  seagull.explore();
 	  seagull.mirrorGull();
 	  seagull.explore();
   }
@@ -136,6 +149,7 @@ public class PictureTester
   public static void testMirrorDiagonal()
   {
 	  Picture beach = new Picture("C:\\Users\\lucky\\Documents\\GitHub\\huang_luke_apcsa-p3\\Unit16\\src\\images\\beach.jpg");
+	  beach.explore();
 	  beach.mirrorDiagonal();
 	  beach.explore();
   }
@@ -143,17 +157,37 @@ public class PictureTester
   public static void testCopy()
   {
 	  Picture canvas = new Picture("C:\\Users\\lucky\\Documents\\GitHub\\huang_luke_apcsa-p3\\Unit16\\src\\images\\femaleLionAndHall.jpg");
+	  canvas.explore();
 	  canvas.copy(new Picture ("C:\\Users\\lucky\\Documents\\GitHub\\huang_luke_apcsa-p3\\Unit16\\src\\images\\koala.jpg"), 89, 45);
 	  canvas.copy((new Picture ("C:\\Users\\lucky\\Documents\\GitHub\\huang_luke_apcsa-p3\\Unit16\\src\\images\\water.jpg")), 234, 394);
+	  canvas.explore();
+  }
+  
+  public static void testCopy2()
+  {
+	  Picture canvas = new Picture("C:\\Users\\lucky\\Documents\\GitHub\\huang_luke_apcsa-p3\\Unit16\\src\\images\\femaleLionAndHall.jpg");
+	  canvas.copy(new Picture ("C:\\Users\\lucky\\Documents\\GitHub\\huang_luke_apcsa-p3\\Unit16\\src\\images\\koala.jpg"), 89, 45, 0, 0, 200, 100);
+	  canvas.copy(new Picture ("C:\\Users\\lucky\\Documents\\GitHub\\huang_luke_apcsa-p3\\Unit16\\src\\images\\water.jpg"), 234, 394, 0, 0, 150, 190);
+	  canvas.explore();
+  }
+  
+  public static void testMyCollage()
+  {
+	  Picture canvas = new Picture("C:\\\\Users\\\\lucky\\\\Documents\\\\GitHub\\\\huang_luke_apcsa-p3\\\\Unit16\\\\src\\\\images\\\\640x480.jpg");
+	  canvas.explore();
+	  canvas.myCollage();
 	  canvas.explore();
   }
   
   public static void testEdgeDetection2()
   {
     Picture swan = new Picture("C:\\Users\\lucky\\Documents\\GitHub\\huang_luke_apcsa-p3\\Unit16\\src\\images\\swan.jpg");
+    swan.explore();
     swan.edgeDetection2(10);
     swan.explore();
   }
+  
+  
   
   /** Main method for testing.  Every class can have a main
     * method in Java */
@@ -174,9 +208,11 @@ public class PictureTester
     //testMirrorTemple();
     //testMirrorArms();
     //testMirrorGull();
-    testMirrorDiagonal();
+    //testMirrorDiagonal();
     //testCollage();
+	//testMyCollage();
     //testCopy();
+	testCopy2();
     //testEdgeDetection();
     //testEdgeDetection2();
 	  
