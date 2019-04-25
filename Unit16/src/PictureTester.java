@@ -166,6 +166,7 @@ public class PictureTester
   public static void testCopy2()
   {
 	  Picture canvas = new Picture("C:\\Users\\lucky\\Documents\\GitHub\\huang_luke_apcsa-p3\\Unit16\\src\\images\\femaleLionAndHall.jpg");
+	  canvas.explore();
 	  canvas.copy(new Picture ("C:\\Users\\lucky\\Documents\\GitHub\\huang_luke_apcsa-p3\\Unit16\\src\\images\\koala.jpg"), 89, 45, 0, 0, 200, 100);
 	  canvas.copy(new Picture ("C:\\Users\\lucky\\Documents\\GitHub\\huang_luke_apcsa-p3\\Unit16\\src\\images\\water.jpg"), 234, 394, 0, 0, 150, 190);
 	  canvas.explore();
@@ -197,9 +198,9 @@ public class PictureTester
     //testKeepOnlyBlue();
     //testKeepOnlyRed();
     //testKeepOnlyGreen();
-    //testNegate();
-    //testFixUnderwater();
-    //testGrayscale();
+    testNegate();
+    testFixUnderwater();
+    testGrayscale();
     //testMirrorVertical();
     //testMirrorVerticalRightToLeft();
     //testMirrorHorizontal();
@@ -212,7 +213,7 @@ public class PictureTester
     //testCollage();
 	//testMyCollage();
     //testCopy();
-	testCopy2();
+	//testCopy2();
     //testEdgeDetection();
     //testEdgeDetection2();
 	  
