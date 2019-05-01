@@ -23,7 +23,7 @@ public class Breakout extends Canvas implements KeyListener, Runnable
 	private Paddle paddle;
 	private boolean[] keys;
 	private BufferedImage back;
-	
+	private int count =0;
 	private ArrayList<Block> blocks = new ArrayList<Block>();
 	
 	Random rand = new Random();
@@ -157,6 +157,8 @@ public class Breakout extends Canvas implements KeyListener, Runnable
 				b.draw(graphToBack);
 				blocks.remove(b);
 				ball.setXSpeed(-ball.getXSpeed());
+				count++;
+				checkRestart();
 			}
 			
 			else if (ball.didCollideTop(b) || ball.didCollideBottom(b))
@@ -165,6 +167,8 @@ public class Breakout extends Canvas implements KeyListener, Runnable
 				b.draw(graphToBack);
 				blocks.remove(b);
 				ball.setYSpeed(-ball.getYSpeed());
+				count++;
+				checkRestart();
 			}
 		}
 		
@@ -214,6 +218,55 @@ public class Breakout extends Canvas implements KeyListener, Runnable
 
 	public void keyTyped(KeyEvent e){}
 	
+	
+	public void checkRestart()
+	{
+		if (count == 56)
+		{
+			for (int x = 5; x < 85; x += 40)
+			{
+				for (int y = 5 ; y < 550 ; y += 80)
+				{
+					blocks.add(new Block(x, y, 35, 75, Color.BLUE));
+				}
+			}
+			
+			//right
+			for (int x = 685; x < 750 ; x += 80)
+			{
+				for (int y = 5 ; y < 550 ; y += 80)
+				{
+					blocks.add(new Block(x, y, 35, 75, Color.BLUE));
+				}
+			}
+
+			for (int x = 645; x < 720 ; x += 80)
+			{
+				for (int y = 5 ; y < 550 ; y += 80)
+				{
+					blocks.add(new Block(x, y, 35, 75, Color.BLUE));
+				}
+			}
+			
+			//top
+			for (int x = 85; x < 600 ; x += 80)
+			{
+				for (int y = 5 ; y < 85 ; y += 40)
+				{
+					blocks.add(new Block(x, y, 75, 35, Color.BLUE));
+				}
+			}
+			
+			//bottom
+			for (int x = 85; x < 600 ; x += 80)
+			{
+				for (int y = 525 ; y > 445 ; y -= 40)
+				{
+					blocks.add(new Block(x, y, 75, 35, Color.BLUE));
+				}
+			}
+		}
+	}
    public void run()
    {
    	try
