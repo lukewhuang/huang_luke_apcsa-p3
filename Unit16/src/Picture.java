@@ -499,7 +499,64 @@ public class Picture extends SimplePicture
 			}
 		}
   }
-  
+
+  public void encode(Picture messagePict)
+  {
+    Pixel[][] messagePixels = messagePict.getPixels2D();
+    Pixel[][] currPixels = this.getPixels2D();
+    Pixel currPixel = null;
+    Pixel messagePixel = null;
+    for (Pixel[] row: currPixels)
+    {
+        for (Pixel p: row)
+        {
+          if (p.getRed() % 2 != 0)
+          {
+            p.setRed(p.getRed() + 1);
+          }
+        }
+    }
+    for (int row = 0; row < messagePixels.length; row++)
+    {
+      for (int col = 0; col < messagePixels[0].length; col++)
+      {
+        if (messagePixels[row][col].colorDistance(Color.BLACK) < 50)
+        {
+          currPixels[row][col].setRed(currPixels[row][col].getRed() + 1);
+        }
+      }
+    }
+    this.write("encoded.bmp");
+    /** Your code here */
+  }
+ 
+  public void decode()
+  {
+    Pixel[][] pixels = this.getPixels2D();
+    int height = this.getHeight();
+    int width = this.getWidth();
+    Pixel currPixel = null;
+    Pixel messagePixel = null;
+    Picture messagePicture = new Picture(height,width);
+    Pixel[][] messagePixels = messagePicture.getPixels2D();
+    for (Pixel[] row: pixels)
+    {
+        for (Pixel p: row)
+        {
+          if (p.getRed() % 2 == 1)
+          {
+            p.setColor(Color.BLACK);
+          }
+          else
+          {
+            p.setColor(Color.WHITE);
+          }
+        }
+    }
+    this.write("decoded.bmp");
+    /** your code here */
+ 
+  }
   
   /* Main method for testing - each class in Java can have a main 
    * method 

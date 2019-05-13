@@ -188,6 +188,18 @@ public class PictureTester
     swan.explore();
   }
   
+  public static void testHidden()
+  {
+	    Picture beach = new Picture("C:\\\\Users\\\\lucky\\\\Documents\\\\GitHub\\\\huang_luke_apcsa-p3\\\\Unit16\\\\src\\\\images\\\\beach.jpg");
+	    beach.explore();
+	    Picture message = new Picture("C:\\\\\\\\Users\\\\\\\\lucky\\\\\\\\Documents\\\\\\\\GitHub\\\\\\\\huang_luke_apcsa-p3\\\\\\\\Unit16\\\\\\\\src\\\\\\\\msg.jpg");
+	    beach.encode(message);
+	    beach.explore();
+	    beach.decode();
+	    beach.explore();
+	  }
+
+
   
   
   /** Main method for testing.  Every class can have a main
@@ -198,9 +210,9 @@ public class PictureTester
     //testKeepOnlyBlue();
     //testKeepOnlyRed();
     //testKeepOnlyGreen();
-    testNegate();
-    testFixUnderwater();
-    testGrayscale();
+    //testNegate();
+    //testFixUnderwater();
+    //testGrayscale();
     //testMirrorVertical();
     //testMirrorVerticalRightToLeft();
     //testMirrorHorizontal();
@@ -224,5 +236,7 @@ public class PictureTester
     //testSetRedToHalfValueInTopHalf();
     //testClearBlueOverValue(200);
     //testGetAverageForColumn(0);
+	  
+	testHidden();
   }
 }
