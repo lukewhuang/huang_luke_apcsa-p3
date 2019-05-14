@@ -14,58 +14,84 @@ import java.util.List;
 
 public class Bullets
 {
-	private List<Ammo> ammoList;
+	private ArrayList<Ammo> ammo;
+	private int timeofmostrecentshot;
+	private int shotdelay;
 
 	public Bullets()
 	{
-		ammoList = new ArrayList<Ammo>();
+		System.out.println("Bullet Constructor");
+		shotdelay = 50;
+		ammo = new ArrayList<Ammo>();
 	}
 
-	public void add(Ammo ammo)
+	public void add(Ammo al, int time)
 	{
-		ammoList.add(ammo);
+		if (time-timeofmostrecentshot > shotdelay) {
+			ammo.add(al);
+			timeofmostrecentshot = time;
+		}
 	}
-		
-	public void drawEmAll(Graphics window)
+	
+	public void setTimeofmostrecentshot(int i)
 	{
-		for (Ammo ammo : ammoList)
-		{
-			ammo.draw(window);
+		timeofmostrecentshot = i;
+	}
+
+	//post - draw each Ammo
+	public void drawAll( Graphics window )
+	{
+		for(int i = 0; i<ammo.size(); i++) {
+			ammo.get(i).draw(window);
 		}
 	}
 
-	public void moveEmAll()
+	public void moveAll()
 	{
-		for (Ammo ammo : ammoList)
-		{
-			ammo.move("UP");
-		}
+		moveDirection("UP");
 	}
 
-	public void cleanEmUp()
+	public void moveDirection(String direction)
 	{
-		for (int i = 0; i < ammoList.size(); i++)
-		{
-			if (ammoList.get(i).getY() - ammoList.get(i).getSpeed() < 0)
-			{
-				ammoList.remove(i);
-				i--;
+		if (direction.equals("RIGHT")){
+			for(int i=0; i<ammo.size(); i++) { ammo.get(i).setX(ammo.get(i).getX()+ammo.get(i).getSpeed()); }
+		} else if (direction.equals("LEFT")) {
+			for(int i=0; i<ammo.size(); i++) { ammo.get(i).setX(ammo.get(i).getX()-ammo.get(i).getSpeed()); }
+		} else if (direction.equals("UP")) {
+			for(int i=0; i<ammo.size(); i++) { ammo.get(i).setY(ammo.get(i).getY()-ammo.get(i).getSpeed()); }
+		} else if (direction.equals("DOWN")) {
+			for(int i=0; i<ammo.size(); i++) { ammo.get(i).setY(ammo.get(i).getY()+ammo.get(i).getSpeed()); }
+		} else if (direction.equals("STOP")) {
+			
+		}
+	}
+	
+	public void remove()
+	{
+		for (int i = 0; i<ammo.size(); i++) {
+			if (ammo.get(i).getY() < 0 || ammo.get(i).getY() > 600 || ammo.get(i).getX() < 0 || ammo.get(i).getX() > 800) {
+				ammo.remove(i);
 			}
 		}
 	}
 
 	public List<Ammo> getList()
 	{
-		return ammoList;
+		return ammo;
+	}
+	
+	public int getLength()
+	{
+		return ammo.size();
+	}
+	
+	public Ammo getBullet(int i)
+	{
+		return ammo.get(i);
 	}
 
 	public String toString()
 	{
-		String a = "";
-		for (Ammo ammo : ammoList)
-		{
-			a += ammo.toString();
-		}
-		return a;
+		return "" + ammo;
 	}
 }

@@ -4,65 +4,132 @@
 //Class -
 //Lab  -
 
+import java.awt.Color;
 import java.awt.Graphics;
+import java.awt.Image;
+import java.io.File;
+import javax.imageio.ImageIO;
 import java.util.ArrayList;
 import java.util.List;
 
-public class AlienHorde {
-	private List<Alien> aliens;
-	private int size;
-	private int counter;
-
-	public AlienHorde(int s) {
-		aliens = new ArrayList<Alien>();
-		size = s;
-	}
-
-	public void add(Alien alien) {
-		aliens.add(alien);
-	}
-
-	public void drawEmAll(Graphics window) {
-		for (Alien alien : aliens)
-			alien.draw(window);
-	}
+public class AlienHorde
+{
+	private ArrayList<Alien> aliens;
+	private int numberofaliens;
+	private int spcbtwaliens;
+	private String direction;
+	private int height;
+	private int speed;
 	
-	public void moveEmAll() {
-		counter++; 
-		for (Alien alien : aliens) {
-			if (counter <= 120)
-				alien.move("RIGHT");
-			else if (counter <= 320)
-				alien.move("DOWN");
-			else if (counter <= 440)
-				alien.move("LEFT");
-			else if (counter <= 640)
-				alien.move("UP");
-			else if (counter <= 1000)
-				counter = 0;
+	public AlienHorde(int size, int starty, int startx, int spacing)
+	{
+		speed = 2;
+		height = starty;
+		direction = "RIGHT";
+		spcbtwaliens = spacing;
+		System.out.println("AlienHorde Constructor");
+		numberofaliens = 0;
+		aliens = new ArrayList<Alien>();
+		for (int i = 0; i<size; i++) {
+			System.out.println("makealien");
+			Alien tempalien = new Alien(((numberofaliens*spcbtwaliens)+startx),starty,50,50,speed);
+			aliens.add(tempalien);
+			numberofaliens++;
 		}
 	}
 
-	public void removeDeadOnes(List<Ammo> shots) {
-		for (int i = 0; i < shots.size(); i++)
-			for (int j = 0; j < aliens.size(); j++)
-				try { 
-					if (shots.get(i).Collide(aliens.get(j))) {
-						shots.remove(i);
-						aliens.remove(j);
-						size--;
-					}
-				} catch (Exception e) {
-					System.out.println(aliens.size() + " aliens left");
-				}
+	public void add(Alien al)
+	{
+		aliens.add(al);
+		numberofaliens++;
 	}
 	
-
-	public int getSize() {
-		return size;
+	public int size()
+	{
+		return aliens.size();
 	}
 
-	public String toString() {
-		return "";
+	public void drawAll( Graphics window )
+	{
+		for(int i = 0; i<aliens.size(); i++) {
+			aliens.get(i).draw(window);
+		}
+	}
+
+	public void setSpeed(int SPEED)
+	{
+		speed = SPEED;
+		for (int i=0; i<aliens.size(); i++)
+		{
+			aliens.get(i).setSpeed(speed);
+		}
+	}
+	
+	public void moveAll()
+	{
+		int dist = (numberofaliens*50) + 300;
+		for (int i=aliens.size()-1; i>=0; i--) {
+			if (aliens.get(i).getX() > dist && aliens.get(i).getStatus().equals("ALIVE")) {
+				//System.out.println("left " + i);
+				direction = "LEFT";
+			} 
+		}
+		for (int i=0; i<aliens.size()-1; i++) {
+			if (aliens.get(i).getX() < 25 && aliens.get(i).getStatus().equals("ALIVE")) {
+				//System.out.println("right" + i);
+				direction = "RIGHT";
+			}
+		}
+		moveDirection(direction);
+	}
+	
+	public void moveDirection(String direction)
+	{
+		if (direction.equals("RIGHT")){
+			for(int i=0; i<aliens.size(); i++) { aliens.get(i).setX(aliens.get(i).getX()+aliens.get(i).getSpeed()); }
+		} else if (direction.equals("LEFT")) {
+			for(int i=0; i<aliens.size(); i++) { aliens.get(i).setX(aliens.get(i).getX()-aliens.get(i).getSpeed()); }
+		} else if (direction.equals("UP")) {
+			for(int i=0; i<aliens.size(); i++) { aliens.get(i).setY(aliens.get(i).getY()-aliens.get(i).getSpeed()); }
+		} else if (direction.equals("DOWN")) {
+			for(int i=0; i<aliens.size(); i++) { aliens.get(i).setY(aliens.get(i).getY()+aliens.get(i).getSpeed()); }
+		} else if (direction.equals("STOP")) {
+			
+		}
+	}
+
+	public void removeDeadOnes(List<Ammo> shots)
+	{
+		for(int i=0; i<aliens.size(); i++) {
+			if (aliens.get(i).getStatus().equals("DEAD")) {
+				aliens.remove(i);
+			}
+		}
+	}
+
+	public boolean hitsBottom(int height)
+	{
+		for (Alien a: aliens)
+		{
+			if (a.getY() + a.getHeight() >= height)
+			{
+				return true;
+			}
+		}
+		return false;
+	}
+	
+	
+	public int getLength() {
+		return aliens.size();
+	}
+	
+	public Alien getAlien(int index) {
+		return aliens.get(index);
+	}
+	
+	public String toString()
+	{
+		return "" + aliens;
 	}
 }
