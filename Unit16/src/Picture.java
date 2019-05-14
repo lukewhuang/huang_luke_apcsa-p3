@@ -510,9 +510,13 @@ public class Picture extends SimplePicture
     {
         for (Pixel p: row)
         {
-          if (p.getRed() % 2 != 0)
+          if (p.getBlue() % 2 != 0)
           {
-            p.setRed(p.getRed() + 1);
+            p.setBlue(p.getBlue() + 1);
+          }
+          if (p.getGreen() % 2 != 0)
+          {
+        	  p.setGreen(p.getGreen() + 1);
           }
         }
     }
@@ -522,7 +526,8 @@ public class Picture extends SimplePicture
       {
         if (messagePixels[row][col].colorDistance(Color.BLACK) < 50)
         {
-          currPixels[row][col].setRed(currPixels[row][col].getRed() + 1);
+          currPixels[row][col].setBlue(currPixels[row][col].getBlue() + 1);
+          currPixels[row][col].setGreen(currPixels[row][col].getGreen() + 1);
         }
       }
     }
@@ -543,7 +548,7 @@ public class Picture extends SimplePicture
     {
         for (Pixel p: row)
         {
-          if (p.getRed() % 2 == 1)
+          if (p.getBlue() % 2 == 1 && p.getGreen() % 2 == 1)
           {
             p.setColor(Color.BLACK);
           }
