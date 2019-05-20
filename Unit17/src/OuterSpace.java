@@ -47,8 +47,8 @@ public class OuterSpace extends Canvas implements KeyListener, Runnable
 		//Ship, Alien
 		ship = new Ship(200,200,50,50,5);	
 		
-		horde = new AlienHorde(8,10,10,50);
-		horde2 = new AlienHorde(8,60,10,50);
+		horde = new AlienHorde(8,10,10,70);
+		horde2 = new AlienHorde(8,60,10,70);
 		bullets = new Bullets();
 		
 		this.addKeyListener(this);
@@ -149,7 +149,7 @@ public class OuterSpace extends Canvas implements KeyListener, Runnable
 		bullets.moveDirection("UP");
 
 		//hits bottom
-		if (horde.hitsBottom(this.getHeight()))
+		if (horde2.hitsBottom(this.getHeight()))
 			hitsBottom = true;
 		
 		//**********COLLISION DETECTION*******

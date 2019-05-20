@@ -506,33 +506,61 @@ public class Picture extends SimplePicture
     Pixel[][] currPixels = this.getPixels2D();
     Pixel currPixel = null;
     Pixel messagePixel = null;
+    int greenSum = 0;
+    int temp1 = 0;
+    int GreenTest = 0;
+    
+    Pixel potato = currPixels[100][200];
+    int greenT = potato.getGreen();
+    while(greenT > 0) {
+    	int temp2 = greenT % 10;
+    	GreenTest += temp2;
+    	greenT = greenT / 10;
+    }
+    System.out.println(GreenTest);
+    
     for (Pixel[] row: currPixels)
     {
+    	
         for (Pixel p: row)
         {
-          if (p.getBlue() % 2 != 0)
+    	  
+          int greenTemp = p.getGreen();
+          while (greenTemp > 0)
           {
-            p.setBlue(p.getBlue() + 1);
+        	  temp1 = p.getGreen() % 10;
+              greenSum += temp1;
+              greenTemp = greenTemp / 10;
           }
-          if (p.getGreen() % 2 != 0)
+            	
+          
+          if (greenSum % 2 == 0 && (p.getGreen() == 255))
+          {
+            p.setGreen(p.getGreen() - 1);
+          } 
+          else if (greenSum % 2 == 0 && (p.getGreen() == 0))
+          {
+              p.setGreen(p.getGreen() + 1);
+            } 
+          else if (greenSum % 2 == 0)
           {
         	  p.setGreen(p.getGreen() + 1);
           }
+      
         }
     }
     for (int row = 0; row < messagePixels.length; row++)
     {
       for (int col = 0; col < messagePixels[0].length; col++)
       {
-        if (messagePixels[row][col].colorDistance(Color.BLACK) < 50)
+        if (messagePixels[row][col].colorDistance(Color.BLACK) < 40)
         {
-          currPixels[row][col].setBlue(currPixels[row][col].getBlue() + 1);
-          currPixels[row][col].setGreen(currPixels[row][col].getGreen() + 1);
+          currPixels[row][col].setGreen(currPixels[row][col].getGreen() - 1);
+          
         }
       }
     }
-    this.write("encoded.bmp");
-    /** Your code here */
+    
   }
  
   public void decode()
@@ -548,7 +576,17 @@ public class Picture extends SimplePicture
     {
         for (Pixel p: row)
         {
-          if (p.getBlue() % 2 == 1 && p.getGreen() % 2 == 1)
+    	  int greenSum = 0;
+          int temp1 = 0;
+          int greenTemp = p.getGreen();
+          while (greenTemp > 0)
+          {
+        	  temp1 = p.getGreen() % 10;
+              greenSum += temp1;
+              greenTemp = greenTemp / 10;
+          }
+        	
+          if (greenSum % 2 == 0)
           {
             p.setColor(Color.BLACK);
           }
@@ -557,9 +595,7 @@ public class Picture extends SimplePicture
             p.setColor(Color.WHITE);
           }
         }
-    }
-    this.write("decoded.bmp");
-    /** your code here */
+    }   
  
   }
   

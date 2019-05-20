@@ -190,11 +190,11 @@ public class PictureTester
   
   public static void testHidden()
   {
-	    Picture beach = new Picture("C:\\\\Users\\\\lucky\\\\Documents\\\\GitHub\\\\huang_luke_apcsa-p3\\\\Unit16\\\\src\\\\images\\\\beach.jpg");
+	    Picture beach = new Picture("C:\\Users\\lucky\\Documents\\GitHub\\huang_luke_apcsa-p3\\Unit16\\src\\images\\beach.jpg");
 	   
 	    //original picture
 	    beach.explore();
-	    Picture message = new Picture("C:\\\\\\\\Users\\\\\\\\lucky\\\\\\\\Documents\\\\\\\\GitHub\\\\\\\\huang_luke_apcsa-p3\\\\\\\\Unit16\\\\\\\\src\\\\\\\\msg.jpg");
+	    Picture message = new Picture("C:\\Users\\lucky\\Documents\\GitHub\\huang_luke_apcsa-p3\\Unit16\\src\\apple.jpg");
 	    message.explore();
 	    beach.encode(message);
 	    //encoded picture
