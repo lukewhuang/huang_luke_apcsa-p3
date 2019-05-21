@@ -508,41 +508,22 @@ public class Picture extends SimplePicture
     Pixel messagePixel = null;
     int greenSum = 0;
     int temp1 = 0;
-    int GreenTest = 0;
-    
-    Pixel potato = currPixels[100][200];
-    int greenT = potato.getGreen();
-    while(greenT > 0) {
-    	int temp2 = greenT % 10;
-    	GreenTest += temp2;
-    	greenT = greenT / 10;
-    }
-    System.out.println(GreenTest);
     
     for (Pixel[] row: currPixels)
     {
     	
         for (Pixel p: row)
         {
-    	  
-          int greenTemp = p.getGreen();
-          while (greenTemp > 0)
-          {
-        	  temp1 = p.getGreen() % 10;
-              greenSum += temp1;
-              greenTemp = greenTemp / 10;
-          }
-            	
+	    int greenTemp = p.getGreen();
+	    
+	    while(greenTemp > 0 )
+	    {
+	    	temp1 = p.getGreen() %10;
+	    	greenSum += temp1;
+	    	greenTemp = greenTemp / 10;
+	    }
           
-          if (greenSum % 2 == 0 && (p.getGreen() == 255))
-          {
-            p.setGreen(p.getGreen() - 1);
-          } 
-          else if (greenSum % 2 == 0 && (p.getGreen() == 0))
-          {
-              p.setGreen(p.getGreen() + 1);
-            } 
-          else if (greenSum % 2 == 0)
+          if (greenSum % 2 != 0)
           {
         	  p.setGreen(p.getGreen() + 1);
           }
@@ -576,17 +557,8 @@ public class Picture extends SimplePicture
     {
         for (Pixel p: row)
         {
-    	  int greenSum = 0;
-          int temp1 = 0;
-          int greenTemp = p.getGreen();
-          while (greenTemp > 0)
-          {
-        	  temp1 = p.getGreen() % 10;
-              greenSum += temp1;
-              greenTemp = greenTemp / 10;
-          }
-        	
-          if (greenSum % 2 == 0)
+          	
+          if (p.getGreen() % 2 != 0)
           {
             p.setColor(Color.BLACK);
           }
